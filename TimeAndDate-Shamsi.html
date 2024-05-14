@@ -1,0 +1,128 @@
+<!-- call on the (body onload) = datetoshamsi() -->
+<body onload="datetoshamsi()">
+<label for="shamsi-date">تاریخ و ساعت - شمسی : </label>
+    <input type="text" id="shamsi-date">
+</body>
+<!-- call on the (body onload) = datetoshamsi() -->
+
+
+<!-- script of Date shamsi -->
+<script>
+function datetoshamsi(){
+const gregorianDate = new Date();
+const shamsiDateInfo = new Intl.DateTimeFormat('fa-IR-u-ca-persian', { day: 'numeric', month: 'long', year: 'numeric' }).formatToParts(gregorianDate);
+const shamsiDate = `${shamsiDateInfo[2].value} ${shamsiDateInfo[4].value} ${shamsiDateInfo[0].value}`;
+////////////////////////////////////////
+const persianDateString = shamsiDate;
+const [persianMonthName, persianYear, persianDay] = persianDateString.split(' ');
+const formattedPersianDate = `${persianYear}/${persianMonthName}/${persianDay}`;
+/////////////////////////////////////////Time S
+const currentTime = new Date();
+const hours = currentTime.getHours();
+const minutes = currentTime.getMinutes();
+const secends = currentTime.getSeconds();
+const AllTime = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${secends.toString().padStart(2, "0")}`;
+////////////////////////////////////////Time E
+const string = formattedPersianDate;
+// ماه به  نام و عدد _ توسط تابع  (replaceWith) عوض میشود که در صورت نیاز میتوانید حذف کنید
+const findMe = "اردیبهشت";
+const replaceWith = "۰٢";
+const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    //نام المنتی را که در آن نمایش داده شود را میتوانید با  (shamsi-date) جایگزین نمایید
+    } else {
+    const findMe = "خرداد";
+    const replaceWith = "۰۳";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "تیر";
+    const replaceWith = "۰۴";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "مرداد ";
+    const replaceWith = "۰۵";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "شهریور";
+    const replaceWith = "۰٦";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "مهر";
+    const replaceWith = "۰۷";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "آبان";
+    const replaceWith = "۰٨";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "آذر";
+    const replaceWith = "۰٩";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "دی";
+    const replaceWith = "۱۰";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "بهمن";
+    const replaceWith = "۱۱";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "اسفند";
+    const replaceWith = "۱۲";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+    const findMe = "فروردین";
+    const replaceWith = "۰۱";
+    const index = string.indexOf(findMe);
+    if (index!== -1) {
+    const newString = string.replace(findMe, replaceWith);
+    document.getElementById("shamsi-date").value = newString + " - " + AllTime;
+    } else {
+       /////////////////ماه مورد نظر درست وارد نشده است///////////////
+    }//not "فروردین "
+    }//not "اسفند "
+    }//not "بهمن "
+    }//not "دی "
+    }//not "آذر "
+    }//not "آبان "
+    }//not "مهر "
+    }//not "شهریور "
+    }//not "مرداد "
+    }//not "تیر "
+    }//not "خرداد "
+    }//not "اردیبهشت "
+}//datetoshamsi END
+</script>
+<!-- script of Date shamsi -->
